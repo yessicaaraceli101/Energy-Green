@@ -533,20 +533,19 @@
 
     </section><!-- /Why Us Section -->
 
-
-
-<!-- Services Section (responsive + efectos, sin subrayado y título en verde) -->
+<!-- Services Section (imágenes completas, responsive, título en verde) -->
 <section id="services" class="services section">
-  <!-- Estilos solo para esta sección (podés moverlos a assets/css/main.css) -->
+  <!-- Estilos solo para esta sección -->
   <style>
     :root{
       --verde:#16a34a;
       --verde-osc:#12843f;
       --borde:#eaf6ee;
       --sombra:0 10px 28px rgba(0,0,0,.06);
+      --media-bg:#f6f9f7; /* fondo suave detrás de las imágenes cuando “sobran” márgenes */
     }
 
-    /* Fondo muy suave */
+    /* Fondo suave */
     #services{
       background:
         radial-gradient(1000px 500px at 110% -10%, rgba(22,163,74,.05), transparent 60%),
@@ -576,21 +575,33 @@
       #services .rg-card{ grid-template-columns: 380px 1fr; }
     }
 
-    /* Imagen fluida + zoom sutil en hover */
-    #services .rg-media img,
-    #services .media-img{
-      width:100% !important; height:auto !important;
-      aspect-ratio: 4 / 3; object-fit: cover; border-radius:12px; display:block;
-      transition:transform .35s ease;
+    /* Contenedor de imagen con altura consistente (NO recorta la imagen) */
+    #services .rg-media{
+      border-radius:12px;
+      overflow:hidden;
+      background:var(--media-bg);
+      aspect-ratio: 4 / 3;         /* altura pareja en desktop */
+      display:flex; align-items:center; justify-content:center;
     }
     @media (max-width: 991.98px){
-      #services .rg-media img,
-      #services .media-img{ aspect-ratio: 16 / 9; }
+      #services .rg-media{ aspect-ratio: 16 / 9; } /* más panorámico en móvil */
     }
-    #services .rg-card:hover .rg-media img,
-    #services .rg-card:hover .media-img{ transform:scale(1.02); }
 
-    /* H3 con barra lateral verde (opcional, queda elegante) */
+    /* Imagen SIEMPRE completa dentro del contenedor */
+    #services .rg-media img,
+    #services .media-img{
+      width:100%;
+      height:100%;
+      object-fit: contain;          /* ⭐ clave: no recorta la imagen */
+      display:block;
+      border-radius:12px;           /* por si no llena todo, mantiene esquinas suaves */
+      transition:transform .25s ease; /* sutil, sin distorsionar */
+    }
+    /* quitamos zoom fuerte para no “salirse” del marco ni simular recorte */
+    #services .rg-card:hover .rg-media img,
+    #services .rg-card:hover .media-img{ transform:scale(1.01); }
+
+    /* H3 con barra lateral verde (detalle elegante) */
     #services h3{
       position:relative; padding-left:.75rem; margin-bottom:.5rem;
     }
@@ -601,7 +612,9 @@
 
     /* Listas con check por CSS (sin puntitos) */
     #services .list-check{ list-style:none; padding-left:0; margin-bottom:1rem; }
-    #services .list-check li{ position:relative; padding-left:1.8rem; margin:.35rem 0; line-height:1.55; }
+    #services .list-check li{
+      position:relative; padding-left:1.8rem; margin:.35rem 0; line-height:1.55;
+    }
     #services .list-check li::before{
       content:""; position:absolute; left:0; top:.2rem; width:1.1rem; height:1.1rem;
       background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='%2316a34a' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M20 6L9 17l-5-5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -618,39 +631,27 @@
       box-shadow:0 10px 24px rgba(22,163,74,.25); transform:translateY(-1px);
     }
 
-    /* Grid de 2 columnas para las dos fotos (1 columna en móvil) */
-  #services .media-grid{
-    display: grid;
-    gap: 8px;
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 575.98px){
-    #services .media-grid{ grid-template-columns: 1fr; }
-  }
-  /* Fotos dentro del grid, con corte prolijo */
-  #services .media-grid img{
-    width: 100%;
-    aspect-ratio: 4 / 3;   /* mismo alto visual */
-    object-fit: cover;
-    border-radius: 12px;
-    display: block;
-  }
-
-  /* Solo para el card de “Alumbrados solares…”: columna de imagen más angosta */
-  @media (min-width: 992px){
-    #services .rg-card--narrow{
-      grid-template-columns: 320px 1fr; /* antes 380px */
+    /* LUMINARIAS: dos fotos dentro del mismo contenedor, sin recorte */
+    #services .rg-media--grid{ aspect-ratio: 4 / 3; }
+    @media (max-width:575.98px){ #services .rg-media--grid{ aspect-ratio: 16 / 9; } }
+    #services .media-grid{
+      display:grid; gap:8px; grid-template-columns:1fr 1fr;
+      width:100%; height:100%;
     }
-  }
+    @media (max-width:575.98px){
+      #services .media-grid{ grid-template-columns:1fr; }
+    }
+    #services .media-grid img{
+      width:100%; height:100%;
+      object-fit: contain;          /* ⭐ completo, sin recorte */
+      background:var(--media-bg);
+      border-radius:12px; display:block;
+    }
 
-  /* (Opcional) si querés que NO recorte la foto, sino que entre completa */
-  #services .media-img--contain{
-    object-fit: contain;
-    background:#f6f9f7;
-    padding:8px;
-    border:1px solid #e6f4ea;
-    border-radius:12px;
-  }
+    /* Solo “Alumbrados…”: columna de imagen más angosta en desktop (opcional) */
+    @media (min-width:992px){
+      #services .rg-card--narrow{ grid-template-columns:320px 1fr; }
+    }
   </style>
 
   <!-- Section Title -->
@@ -727,16 +728,16 @@
         </div>
       </div>
 
-      <!-- 04 Luminarias (dos imágenes) -->
+      <!-- 04 Luminarias (dos imágenes, completas) -->
       <div class="col-12" data-aos="fade-up" data-aos-delay="220">
         <div class="rg-card">
-         <div class="rg-media">
-           <div class="media-grid">
-             <img src="assets/img/respaldo3.png" alt="Luminaria solar 1" loading="lazy">
-             <img src="assets/img/respaldo4.png" alt="Luminaria solar 2" loading="lazy">
+          <div class="rg-media rg-media--grid">
+            <div class="media-grid">
+              <img src="assets/img/respaldo3.png" alt="Luminaria solar 1" loading="lazy">
+              <img src="assets/img/respaldo4.png" alt="Luminaria solar 2" loading="lazy">
             </div>
-         </div>
-       <div>
+          </div>
+          <div>
             <h3>LUMINARIAS SOLARES</h3>
             <ul class="list-check mb-0">
               <li>Instalación sencilla y rápida</li>
@@ -749,17 +750,12 @@
         </div>
       </div>
 
-      <!-- 05 Alumbrados de alta potencia -->
-<div class="col-12" data-aos="fade-up" data-aos-delay="260">
-  <!-- agrega rg-card--narrow aquí -->
-  <div class="rg-card rg-card--narrow">
-    <div class="rg-media">
-      <!-- opción A (recorte elegante, más chica): -->
-      <img src="assets/img/panel.png"
-           alt="Alumbrados solares de alta potencia"
-           class="media-img"
-           loading="lazy">
-
+      <!-- 05 Alumbrados de alta potencia (columna de imagen más angosta) -->
+      <div class="col-12" data-aos="fade-up" data-aos-delay="260">
+        <div class="rg-card rg-card--narrow">
+          <div class="rg-media">
+            <!-- Si querés aún más pequeña sin recorte, esto ya es contain -->
+            <img src="assets/img/panel.png" alt="Alumbrados solares de alta potencia" class="media-img" loading="lazy">
           </div>
           <div>
             <h3>ALUMBRADOS SOLARES DE ALTA POTENCIA</h3>
@@ -822,8 +818,6 @@
     </div><!-- /.row -->
   </div><!-- /.container -->
 </section>
-
-
 
 
 
@@ -1250,7 +1244,10 @@
     <div class="client-card" data-aos="fade-up" data-aos-delay="80">
       <div class="row g-4 align-items-start">
         <div class="col-12 col-md-5 col-lg-4">
-          <img src="assets/img/fotitos.png" alt="Nuestros clientes" class="client-img" loading="lazy">
+          <img src="assets/img/fotitos.png"
+          alt="Nuestros clientes"
+          class="client-img img-fluid d-block mx-auto"
+          loading="lazy">
         </div>
         <div class="col-12 col-md-7 col-lg-8">
           <ul class="client-list">
@@ -1374,9 +1371,9 @@
       <!-- Imagen general -->
       <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
         <img src="assets/img/ima.png"
-             alt="Productos de energía solar: paneles, inversores, baterías y más"
-             class="img-fluid rounded-4 shadow"
-             loading="lazy" decoding="async">
+     alt="Productos de energía solar: paneles, inversores, baterías y más"
+     class="img-fluid rounded-4 shadow d-block mx-auto"
+     loading="lazy" decoding="async">
       </div>
 
       <!-- Lista de productos -->
