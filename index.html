@@ -412,45 +412,90 @@
 </div>
 
   <!-- Contenedor principal -->
-<div class="container mt-5">
+<section id="kits" class="py-4">
+  <div class="container mt-5 px-3 px-md-5">
 
-  <!-- KIT 1KW -->
-  <div class="row mb-5 px-3 px-md-5" data-aos="fade-up" data-aos-delay="300">
-    <div class="col-12 text-center mb-3">
+    <!-- KIT 1KW -->
+    <div class="row kit-card align-items-center mb-4" data-aos="fade-up" data-aos-delay="300">
+      <!-- Imagen (arriba en móvil, derecha en desktop) -->
+      <div class="col-md-4 text-center order-1 order-md-2 mb-3 mb-md-0">
+        <img src="assets/img/solar.jpg" class="img-fluid rounded shadow-sm" alt="Kit solar 1KW">
+      </div>
+      <!-- Texto -->
+      <div class="col-md-8 order-2 order-md-1">
+        <h4 class="kit-title"><i class="bi bi-check2-all"></i> KIT SOLAR DE 1KW</h4>
+        <ul class="kit-list">
+          <li><strong>Incluye:</strong> Paneles solares, baterías, inversor 1KW, cables, conectores.</li>
+          <li><strong>Para abastecer:</strong> 1 heladera, 5 luces de 10W, 1 TV LED, cargadores de celulares.</li>
+        </ul>
+      </div>
     </div>
-    <div class="col-12">
-      <h4><i class="bi bi-check2-all"></i> KIT SOLAR DE 1KW</h4>
-      <ul style="list-style: none; padding-left: 0;">
-        <li><strong>Incluye:</strong> Paneles solares, baterías, inversor 1KW, cables, conectores.</li>
-        <li><strong>Para abastecer:</strong> 1 heladera, 5 luces de 10W, 1 TV LED, cargadores de celulares.</li>
-      </ul>
+
+    <!-- KIT 3KW -->
+    <div class="row kit-card align-items-center mb-4" data-aos="fade-up" data-aos-delay="400">
+      <div class="col-md-4 text-center order-1 order-md-2 mb-3 mb-md-0">
+        <img src="assets/img/solar.jpg" class="img-fluid rounded shadow-sm" alt="Kit solar 3KW">
+      </div>
+      <div class="col-md-8 order-2 order-md-1">
+        <h4 class="kit-title"><i class="bi bi-check2-all"></i> KIT SOLAR DE 3KW</h4>
+        <ul class="kit-list">
+          <li><strong>Incluye:</strong> Paneles solares, baterías, inversor 3KW, cables, conectores, soporte para paneles.</li>
+          <li><strong>Para abastecer:</strong> 1 heladera, 5 luces de 10W, 1 TV de 32", portón eléctrico, bomba de agua, cámaras de seguridad, 1 aire acondicionado 12.000 BTU.</li>
+        </ul>
+      </div>
     </div>
+
+    <!-- KIT 5KW -->
+    <div class="row kit-card align-items-center mb-4" data-aos="fade-up" data-aos-delay="500">
+      <div class="col-md-4 text-center order-1 order-md-2 mb-3 mb-md-0">
+        <img src="assets/img/solar.jpg" class="img-fluid rounded shadow-sm" alt="Kit solar 5KW">
+      </div>
+      <div class="col-md-8 order-2 order-md-1">
+        <h4 class="kit-title"><i class="bi bi-check2-all"></i> KIT SOLAR DE 5KW</h4>
+        <ul class="kit-list">
+          <li><strong>Incluye:</strong> Paneles solares, baterías en gel, inversor 5KW, cables, conectores, soporte para fijación en techo.</li>
+          <li><strong>Para abastecer:</strong> 2 aires de 12.000 BTU, 1 heladera, 1 congelador, 5 luces de 10W, 1 TV LED, 1 portón eléctrico, cámaras de seguridad y más.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Botón final -->
+    <div class="row mb-2">
+      <div class="col-12 text-center">
+        <a href="#mas-info" class="btn btn-success btn-lg">Ver más aquí</a>
+      </div>
+    </div>
+
   </div>
+</section>
 
-  <!-- KIT 3KW -->
-  <div class="row mb-5 px-3 px-md-5" data-aos="fade-up" data-aos-delay="400">
-    <div class="col-12 text-center mb-3">
-    </div>
-    <div class="col-12">
-      <h4><i class="bi bi-check2-all"></i> KIT SOLAR DE 3KW</h4>
-      <ul style="list-style: none; padding-left: 0;">
-        <li><strong>Incluye:</strong> Paneles solares, baterías, inversor 3KW, cables, conectores, soporte para paneles.</li>
-        <li><strong>Para abastecer:</strong> 1 heladera, 5 luces de 10W, 1 TV de 32", portón eléctrico, bomba de agua, cámaras de seguridad, 1 aire acondicionado 12.000 BTU.</li>
-      </ul>
-    </div>
-  </div>
+<style>
+  /* ===== Kits (estilos locales al #kits) ===== */
+  #kits .kit-card{
+    background:#fff;
+    border-radius:16px;
+    padding:25px 20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  #kits .kit-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 28px rgba(0,0,0,.1);
+  }
 
-  <!-- KIT 5KW -->
-  <div class="row mb-5 px-3 px-md-5" data-aos="fade-up" data-aos-delay="500">
-    <div class="col-12 text-center mb-3">
-    </div>
-    <div class="col-12">
-      <h4><i class="bi bi-check2-all"></i> KIT SOLAR DE 5KW</h4>
-      <ul style="list-style: none; padding-left: 0;">
-        <li><strong>Incluye:</strong> Paneles solares, baterías en gel, inversor 5KW, cables, conectores, soporte para techo.</li>
-        <li><strong>Para abastecer:</strong> 2 aires de 12.000 BTU, 1 heladera, 1 congelador, 5 luces de 10W, 1 TV LED, 1 portón eléctrico, cámaras de seguridad y más.</li>
-      </ul>
-    </div>
+  /* Títulos SIN verde: heredan color del tema */
+  #kits .kit-title{ 
+    color: inherit; 
+    font-weight:700; 
+    margin-bottom:12px; 
+  }
+  #kits .kit-title i{ margin-right:6px; }
+
+  #kits .kit-list{
+    list-style:none; padding:0; margin:0; color:#444;
+  }
+  #kits .kit-list li{ margin-bottom:8px; font-size:.95rem; }
+</style>
   </div>
   <!-- Botón final -->
   <div class="row mb-5">
@@ -861,8 +906,23 @@
         <div class="rg-card">
           <div class="rg-media rg-media--grid">
             <div class="media-grid">
-              <img src="assets/img/respaldo3.png" alt="Luminaria solar 1" loading="lazy">
-              <img src="assets/img/respaldo4.png" alt="Luminaria solar 2" loading="lazy">
+              <div class="row g-4 align-items-center">
+  <!-- Imagen 1 -->
+  <div class="col-12 col-md-6 text-center">
+    <img src="assets/img/respaldo3.png" 
+         alt="Luminaria solar 1" 
+         class="img-fluid rounded shadow-sm w-100" 
+         loading="lazy">
+  </div>
+
+  <!-- Imagen 2 -->
+  <div class="col-12 col-md-6 text-center">
+    <img src="assets/img/respaldo4.png" 
+         alt="Luminaria solar 2" 
+         class="img-fluid rounded shadow-sm w-100" 
+         loading="lazy">
+  </div>
+       </div>
             </div>
           </div>
           <div>
