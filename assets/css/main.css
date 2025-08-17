@@ -1932,6 +1932,31 @@ section,
     #services .service-gallery .service-img{ width:100%; }
   }
 
+  /* El tema usa variables; ponelas en blanco dentro del footer */
+  #footer{
+    --heading-color:#fff;
+    --default-color:#fff;
+  }
+
+  /* Títulos específicos */
+  #footer .footer-links h4,
+  #footer .footer-contact h4{
+    color:#fff !important;
+  }
+
+  /* Texto y enlaces de esas columnas */
+  #footer .footer-contact p,
+  #footer .footer-contact a,
+  #footer .footer-contact span,
+  #footer .footer-contact strong,
+  #footer .footer-links ul li,
+  #footer .footer-links ul li a{
+    color:#fff !important;
+  }
+
+  /* Si tu tema pone viñetas/chevrons con otro color */
+  #footer .footer-links ul i{ color:#fff !important; }
+  #footer .footer-links ul li::marker{ color:#fff !important; }
 
 /*--------------------------------------------------------------
 # Starter Section Section
