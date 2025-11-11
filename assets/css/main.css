@@ -1988,6 +1988,16 @@ section,
   background-color: rgba(255, 255, 255, 0.6);
 }
 
+@media (max-width: 768px) {
+  .container,
+  .row,
+  .col-12,
+  .rg-card {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
