@@ -891,12 +891,17 @@ section,
 
 .hero .carousel-item:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
+  background: rgba(255, 255, 255, 0.7);
   position: absolute;
   inset: 0;
   z-index: 2;
 }
 
+.hero .carousel-item h2,
+.hero .carousel-item h1,
+.hero .carousel-item p {
+  color: #000000 !important;
+}
 .hero .carousel-container {
   position: absolute;
   inset: 90px 64px 64px 64px;
@@ -1390,7 +1395,9 @@ section,
 }
 
 .team .member img {
-  margin: -1px -1px 30px -1px;
+  width: 100%;
+  max-height: 250px;   /* Ajusta el tamaño (probá 220px o 200px si querés más pequeño) */
+  object-fit: contain; /* Muestra la imagen completa, sin recortes */
 }
 
 .team .member .member-content {
@@ -1957,6 +1964,29 @@ section,
   /* Si tu tema pone viñetas/chevrons con otro color */
   #footer .footer-links ul i{ color:#fff !important; }
   #footer .footer-links ul li::marker{ color:#fff !important; }
+
+
+.team-photo-fit {
+  width: 100%;
+  height: 350px;               /* Ajusta si quieres más o menos alto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;   /* opcional */
+  padding: 10px;
+}
+
+.team-photo-fit img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;         /* muestra la imagen COMPLETA */
+  object-position: center;
+  border-radius: 15px;
+}
+.team .member:hover img {
+  filter: brightness(1) opacity(0.7);
+  background-color: rgba(255, 255, 255, 0.6);
+}
 
 /*--------------------------------------------------------------
 # Starter Section Section
